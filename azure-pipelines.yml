@@ -1,0 +1,51 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+schedules:
+- cron: "0 9,13,17 * * 1-5" # cron syntax defining a schedule
+  displayName: "schedules to run tests" # friendly name given to a specific schedule
+  branches:
+    include: [ master ] # which branches the schedule applies to
+  always: false # whether to always run the pipeline or only if there have been source code changes since the last successful scheduled run. The default is false.
+
+pool:
+  vmImage: ubuntu-lastest
+
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 16.x'
+  inputs:
+    versionSpec: 16.x
+- task: Npm@1
+  displayName: 'npm install'
+  inputs:
+    verbose: false
+
+- script: |
+    npm run cy:run
+  displayName: 'Run all tests'
+  condition: always()
+  continueOnError: true
+ 
+ - task: PublishBuildArtifacts@1
+  displayName: 'Publish screenshots when there were issues'
+  inputs:
+    pathtoPublish: 'cypress/screenshots'
+    artifactName: screenshots-$(env-file)
+  condition: failed()
+  continueOnError: true
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish videos when there were issues'
+  inputs:
+    pathtoPublish: 'cypress/videos'
+    artifactName: videos-$(env-file)
+  condition: failed()
+  continueOnError: true
+- task: PublishTestResults@2
+  displayName: 'Publish the test reports'
+  inputs:
+    testResultsFiles: '**/reports/junit.*.xml'
+  condition: always()
+  continueOnError: true
