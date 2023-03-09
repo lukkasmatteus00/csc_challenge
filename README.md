@@ -53,7 +53,7 @@ Preferably develop with Javascript language, using cypress framework.
 For this challenge, The following technologies were used:
 - Javascript
 - Cucumber
-- cypress
+- Cypress
 - node
 ---
 
@@ -74,7 +74,7 @@ or
 ---
 ## Final Considerations
 ```
-In summary, the challenge was fun, I can apply some techniques in the tests and try to make it as simple as possible. 
+In summary, the challenge was funny, I was able to apply some techniques in the tests and try to make it as simple as possible. 
 I hope I was able to show what was requested.
 ```
 During the automation of the requested scenarios, I noticed that the application did not create new register and also did not persist the updates made. Although the application presents a success message for the actions mentioned above.
