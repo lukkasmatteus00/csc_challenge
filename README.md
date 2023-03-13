@@ -25,14 +25,17 @@ Create regression testing plan to be enacted upon new builds of this system. Des
 tested, how the plan would be maintained, and how it would be integrated with the deployment
 pipeline.
 ```
-- The tests were created in BDD to validate the requested scenarios and separated between the functionalities (create, edit and list). This way it is more objective to run only a single test suite or all if necessary.
+- The tests were created in BDD to validate the requested scenarios and separated between the functionalities (create, edit and list).
+This way it is more objective to run only a single test suite or all if necessary.
 - The project has a file (.yml) with the necessary steps to run the tests in a pipeline.
 ```
 
 Provide examples of how the QA team and the suite of regression tests produced by the enactment of
 this plan fit into the overarching SDLC.
 ```
-- In this script, I define two Page Objects - one for the homepage and one for the form page. I then use these Page Objects to interact with the elements on the pages and created the scenarios. This helps to keep the code organized and maintainable, and makes it easier to modify the tests if the page structure changes.
+- In this script, I define two Page Objects - one for the homepage and one for the form page. 
+I then use these Page Objects to interact with the elements on the pages and created the scenarios. This helps to keep the code organized and maintainable, 
+and makes it easier to modify the tests if the page structure changes.
 ```
 
 
@@ -54,7 +57,7 @@ For this challenge, The following technologies were used:
 - Javascript
 - Cucumber
 - Cypress
-- node
+- Node
 ---
 
 ## Run tests
@@ -77,7 +80,8 @@ or
 In summary, the challenge was funny, I was able to apply some techniques in the tests and try to make it as simple as possible. 
 I hope I was able to show what was requested.
 ```
-During the automation of the requested scenarios, I noticed that the application did not create new register and also did not persist the updates made. Although the application presents a success message for the actions mentioned above.
+During the automation of the requested scenarios, I noticed that the application did not create new register and also did not persist the updates made.
+Although the application presents a success message for the actions mentioned above.
 
 It is worth emphasizing that the tests that have two scenarios fail, as I created a validation to ensure that a new register was actually created, as well as the register was updated.
 
